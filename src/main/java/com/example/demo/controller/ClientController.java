@@ -11,7 +11,7 @@ import java.util.Optional;
 @RequestMapping("/client")
 @CrossOrigin(origins = "*")
 public class ClientController {
-    @Autowired(required=true)
+    @Autowired
     ClientServiceImpl clientService;
 
 /*
@@ -29,7 +29,7 @@ public class ClientController {
         return client;
     }*/
 
-    @PostMapping("/add")
+    @PostMapping("/create")
     public ClientEntity addClient(@RequestBody ClientEntity newClient)
     {
         ClientEntity client = this.clientService.addClient(newClient);
