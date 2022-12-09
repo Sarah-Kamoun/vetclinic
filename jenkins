@@ -14,16 +14,7 @@ pipeline{
                 }
             }
         }
-        stage('UNIT testing'){
 
-            steps{
-
-                script{
-
-
-                }
-            }
-        }
         stage('Maven build'){
 
             steps{
