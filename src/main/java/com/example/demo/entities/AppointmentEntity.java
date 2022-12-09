@@ -18,15 +18,12 @@ public class AppointmentEntity implements Serializable {
 	private LocalTime hour;
 
 	@OneToOne
-	@JoinColumn(name = "id")
 	private SurgeryEntity surgery;
 	
 	@ManyToOne
-	@JoinColumn(name = "id")
 	private VetEntity vet;
 	
 	@OneToOne
-	@JoinColumn(name = "id")
 	private PetEntity pet;
 	
     public long getId() {

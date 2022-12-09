@@ -21,7 +21,6 @@ public class PetEntity implements Serializable{
 	private AppointmentEntity appointment;
 	
 	@ManyToOne
-	@JoinColumn(name = "id")
 	private ClientEntity client;
 	
 	public String getName() {
