@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 @Service
-public class ClientServiceImpl implements  IClientService{
+public class ClientServiceImpl {
 
     ClientRepository clientRepo;
 
-    @Override
+
     public ClientEntity addClient(ClientEntity c){
         clientRepo.save(c);
         return c;
