@@ -5,6 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class ClientRepositoryTest {
 
     @Autowired
-    private ClientRepository clientRepo;
+    public ClientRepository clientRepo;
 
 }

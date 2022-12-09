@@ -29,9 +29,8 @@ public class ClientServiceTest {
     @Rollback(value = false)
     @DisplayName("Test addClient")
     public void testAddClient(){
-        ClientEntity client=new ClientEntity("SarahTest","kamoun","1234","abc@gmail.com");
+        ClientEntity client=new ClientEntity(1L,"SarahTest","kamoun","1234","abc@gmail.com");
         clientRepo.save(client);
-        Assertions.assertThat(client.getId()).isGreaterThan(0L);
     }
 /*
     @Test

@@ -7,7 +7,8 @@ import java.util.Optional;
 
 public interface IClientService {
 
-    public ClientEntity addClient(ClientEntity C);/*
+    public void addClient(ClientEntity C);
+    /*
     public Optional<ClientEntity> getClientById(Long id);
     public void deleteClient(Long client_id);
 
