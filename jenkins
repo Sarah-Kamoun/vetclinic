@@ -25,7 +25,7 @@ pipeline{
                 }
             }
         }
-        stage('Static code analysis'){
+        stage('Sonar'){
 
             steps{
 
