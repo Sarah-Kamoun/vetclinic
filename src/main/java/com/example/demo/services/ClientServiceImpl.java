@@ -3,12 +3,13 @@ package com.example.demo.services;
 import com.example.demo.entities.ClientEntity;
 import com.example.demo.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+@Service
 public class ClientServiceImpl implements  IClientService{
 
-    @Autowired
     ClientRepository clientRepo;
 
     @Override

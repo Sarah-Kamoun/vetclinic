@@ -11,7 +11,7 @@ import java.util.Optional;
 @RequestMapping("/client")
 @CrossOrigin(origins = "*")
 public class ClientController {
-    @Autowired
+    @Autowired(required=true)
     ClientServiceImpl clientService;
 
 
