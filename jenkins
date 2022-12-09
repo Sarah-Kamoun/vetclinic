@@ -10,7 +10,7 @@ pipeline{
 
                 script{
 
-                    git branch: 'sarah', url: 'https://github.com/Sarah-Kamoun/vetclinic.git'
+                    git branch: 'main', url: 'https://github.com/Sarah-Kamoun/vetclinic.git'
                 }
             }
         }
