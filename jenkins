@@ -14,23 +14,14 @@ pipeline{
                 }
             }
         }
-        stage('UNIT testing'){
 
-            steps{
-
-                script{
-
-                    bat 'mvn test'
-                }
-            }
-        }
         stage('Maven build'){
 
             steps{
 
                 script{
 
-                    bat 'mvn clean install'
+                    bat 'mvn clean install -DskipUnitTests'
                 }
             }
         }
