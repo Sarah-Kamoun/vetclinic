@@ -30,9 +30,10 @@ public class ClientController {
     }*/
 
     @PostMapping("/create")
-    public void addClient(@RequestBody ClientEntity newClient)
+    public ClientEntity addClient(@RequestBody ClientEntity newClient)
     {
-        clientService.addClient(newClient);
+        ClientEntity client = this.clientService.addClient(newClient);
+        return client;
     }
     /*
     @PostMapping("/del")

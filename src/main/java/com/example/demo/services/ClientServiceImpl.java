@@ -13,9 +13,9 @@ public class ClientServiceImpl implements  IClientService{
     ClientRepository clientRepo;
 
     @Override
-    public void addClient(ClientEntity c){
+    public ClientEntity addClient(ClientEntity c){
         clientRepo.save(c);
-
+        return c;
     }
 /*
     @Override

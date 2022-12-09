@@ -29,7 +29,7 @@ public class ClientServiceTest {
     @Rollback(value = false)
     @DisplayName("Test addClient")
     public void testAddClient(){
-        ClientEntity client=new ClientEntity(1L,"SarahTest","kamoun","1234","abc@gmail.com");
+        ClientEntity client=new ClientEntity(1L,"SarahTest","kamoun","1234","abil.com");
         clientRepo.save(client);
     }
 /*
