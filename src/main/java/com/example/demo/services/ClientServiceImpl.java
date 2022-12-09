@@ -17,7 +17,7 @@ public class ClientServiceImpl implements  IClientService{
         clientRepo.save(c);
         return c;
     }
-
+/*
     @Override
     public Optional<ClientEntity> getClientById(Long id){
         Optional<ClientEntity> c;
@@ -36,4 +36,6 @@ public class ClientServiceImpl implements  IClientService{
         List<ClientEntity> clients = (List<ClientEntity>) this.clientRepo.findAll();
         return clients;
     }
+
+ */
 }
