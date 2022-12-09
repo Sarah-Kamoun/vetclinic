@@ -1,0 +1,72 @@
+pipeline{
+
+    agent any
+
+    stages {
+
+        stage('Git Checkout'){
+
+            steps{
+
+                script{
+
+                    git branch: 'sarah', url: 'https://github.com/eya-abid/Veterinary_Clinic.git'
+                }
+            }
+        }
+        stage('UNIT testing'){
+
+            steps{
+
+                script{
+
+                    sh 'mvn test'
+                }
+            }
+        }
+        stage('Maven build'){
+
+            steps{
+
+                script{
+
+                    sh 'mvn clean install'
+                }
+            }
+        }
+        stage('Static code analysis'){
+
+            steps{
+
+                script{
+
+                    withSonarQubeEnv(credentialsId: 'sonar-jenkins') {
+
+                        sh 'mvn clean package sonar:sonar'
+                    }
+                   }
+
+                }
+        }
+        stage('upload war file to nexus'){
+            steps{
+                script{
+                    nexusArtifactUploader artifacts:
+                    [
+                        [artifactId: 'demo',
+                         classifier: '',
+                         file: 'target\\VetApp.jar',
+                          type: 'jar']
+                    ],
+                    credentialsId: 'nexus-auth',
+                    groupId: 'com.example',
+                    nexusUrl: 'localhost:8081/',
+                    nexusVersion: 'nexus3',
+                    protocol: 'http',
+                    repository: 'vetapp-release',
+                    version: '0.0.1-SNAPSHOT'
+                }
+            }
+        }
+    }
+}
