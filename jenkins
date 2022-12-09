@@ -14,14 +14,23 @@ pipeline{
                 }
             }
         }
+        stage('UNIT testing'){
 
+            steps{
+
+                script{
+
+                    bat 'mvn test'
+                }
+            }
+        }
         stage('Maven build'){
 
             steps{
 
                 script{
 
-                    sh 'mvn clean install -DskipUnitTests'
+                    bat 'mvn clean install'
                 }
             }
         }
@@ -33,7 +42,7 @@ pipeline{
 
                     withSonarQubeEnv(credentialsId: 'sonar-jenkins') {
 
-                        sh 'mvn clean package sonar:sonar'
+                        bat 'mvn clean package sonar:sonar'
                     }
                    }
 
