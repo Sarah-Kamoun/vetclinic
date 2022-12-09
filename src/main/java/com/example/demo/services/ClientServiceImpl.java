@@ -14,7 +14,7 @@ public class ClientServiceImpl {
 
 
     public ClientEntity addClient(ClientEntity c){
-        clientRepo.save(c);
+        this.clientRepo.save(c);
         return c;
     }
 /*
