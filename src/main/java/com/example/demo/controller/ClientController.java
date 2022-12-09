@@ -32,7 +32,7 @@ public class ClientController {
     @PostMapping("/create")
     public void addClient(@RequestBody ClientEntity newClient)
     {
-        ClientEntity client = this.clientService.addClient(newClient);
+        clientService.addClient(newClient);
     }
     /*
     @PostMapping("/del")
