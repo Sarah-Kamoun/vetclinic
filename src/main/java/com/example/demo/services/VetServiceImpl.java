@@ -9,28 +9,30 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class VetServiceImpl implements  IVetService{
+public class VetServiceImpl{
 
     @Autowired
     VetRepository vetRepo;
 
-    @Override
+
     public VetEntity addVet(VetEntity v){
-        this.vetRepo.save(v);
-        return v;
+        VetEntity vv= this.vetRepo.save(v);
+        return vv;
     }
 
-    @Override
-    public Optional<VetEntity> getVetById(Long id){
-        return this.vetRepo.findById(id);
+
+    public VetEntity getVetById(Long id){
+        Optional<VetEntity> v=this.vetRepo.findById(id);
+        VetEntity vv=v.orElseThrow();
+        return vv;
     }
 
-    @Override
+
     public void deleteVet(Long vet_id){
         this.vetRepo.deleteById(vet_id);
     }
 
-    @Override
+
     public List<VetEntity> getAllvets()
     {
         List<VetEntity> vets = (List<VetEntity>) this.vetRepo.findAll();

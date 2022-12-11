@@ -14,7 +14,7 @@ public class ClientController {
     @Autowired
     ClientServiceImpl clientService;
 
-/*
+
     @GetMapping("/all")
     public List<ClientEntity> getAllclients()
     {
@@ -23,11 +23,11 @@ public class ClientController {
     }
 
     @GetMapping("/{id}")
-    public Optional<ClientEntity> getClientById(@PathVariable("id") Long Id)
+    public ClientEntity getClientById(@PathVariable("id") Long Id)
     {
-        Optional<ClientEntity> client = this.clientService.getClientById(Id);
+        ClientEntity client = this.clientService.getClientById(Id);
         return client;
-    }*/
+    }
 
     @PostMapping("/create")
     public ClientEntity addClient(@RequestBody ClientEntity newClient)
@@ -35,12 +35,11 @@ public class ClientController {
         ClientEntity client = this.clientService.addClient(newClient);
         return client;
     }
-    /*
-    @PostMapping("/del")
+
+    @PostMapping("/delete")
     public void deleteClient(@PathVariable("id") Long Id)
     {
         this.clientService.deleteClient(Id);
     }
-    */
 
 }

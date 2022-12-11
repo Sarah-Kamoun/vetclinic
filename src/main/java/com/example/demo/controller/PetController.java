@@ -23,19 +23,19 @@ public class PetController {
     }
 
     @GetMapping("/{id}")
-    public Optional<PetEntity> getPetById(@PathVariable("id") Long Id)
+    public PetEntity getPetById(@PathVariable("id") Long Id)
     {
-        Optional<PetEntity> pet = this.petService.getPetById(Id);
+        PetEntity pet = this.petService.getPetById(Id);
         return pet;
     }
-    @PostMapping("/add")
+    @PostMapping("/create")
     public PetEntity addPet(@RequestBody PetEntity newPet)
     {
         PetEntity pet = this.petService.addPet(newPet);
         return pet;
     }
 
-    @PostMapping("/del")
+    @PostMapping("/delete")
     public void deletePet(@PathVariable("id") Long Id)
     {
          this.petService.deletePet(Id);

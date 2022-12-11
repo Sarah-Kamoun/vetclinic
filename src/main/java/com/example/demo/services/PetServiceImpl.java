@@ -8,28 +8,29 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 @Service
-public class PetServiceImpl implements  IPetService{
+public class PetServiceImpl{
 
     @Autowired
     PetRepository petRepo;
 
-    @Override
+
     public PetEntity addPet(PetEntity p){
-        petRepo.save(p);
-        return p;
+        PetEntity newp=this.petRepo.save(p);
+        return newp;
     }
 
-    @Override
-    public Optional<PetEntity> getPetById(Long id){
-        return petRepo.findById(id);
+
+    public  PetEntity getPetById(Long id){
+        Optional<PetEntity> pet=this.petRepo.findById(id);
+        PetEntity thepet=pet.orElseThrow();
+        return thepet;
     }
 
-    @Override
+
     public void deletePet(Long pet_id){
         petRepo.deleteById(pet_id);
     }
 
-    @Override
     public List<PetEntity> getAllpets()
     {
         List<PetEntity> pets = (List<PetEntity>) this.petRepo.findAll();

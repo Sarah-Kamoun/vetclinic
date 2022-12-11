@@ -23,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 @SpringBootTest
 public class ClientServiceTest {
 
+
     ClientRepository clientRepo;
 
     @Test
@@ -32,8 +33,9 @@ public class ClientServiceTest {
         ClientEntity client=new ClientEntity(1L,"SarahTest","kamoun","1234","abil.com");
         clientRepo.save(client);
     }
-/*
-    @Test
+
+    /*
+ @Test
     @Rollback(value = false)
     @DisplayName("test getClientById")
     public void TestGetClientById(){

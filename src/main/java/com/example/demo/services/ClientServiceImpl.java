@@ -14,28 +14,25 @@ public class ClientServiceImpl {
 
 
     public ClientEntity addClient(ClientEntity c){
-        this.clientRepo.save(c);
-        return c;
+        ClientEntity cl=this.clientRepo.save(c);
+        return cl;
     }
-/*
-    @Override
-    public Optional<ClientEntity> getClientById(Long id){
-        Optional<ClientEntity> c;
-        c = clientRepo.findById(id);
+
+    public ClientEntity getClientById(Long id){
+        Optional<ClientEntity> cl=this.clientRepo.findById(id);
+        ClientEntity c=cl.orElseThrow();
         return c;
     }
 
-    @Override
     public void deleteClient(Long client_id){
         clientRepo.deleteById(client_id);
     }
 
-    @Override
     public List<ClientEntity> getAllclients()
     {
         List<ClientEntity> clients = (List<ClientEntity>) this.clientRepo.findAll();
         return clients;
     }
 
- */
+
 }

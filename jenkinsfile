@@ -14,8 +14,26 @@ pipeline{
                 }
             }
         }
+        stage('UNIT testing'){
 
+            steps{
 
+                script{
+
+                    sh 'mvn test'
+                }
+            }
+        }
+        stage('Maven build'){
+
+            steps{
+
+                script{
+
+                    bat 'mvn clean'
+                }
+            }
+        }
         stage('Sonar'){
 
             steps{
