@@ -1,10 +1,10 @@
 package com.example.demo.entities;
 
-import java.io.Serializable;
-import java.util.*;
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-@SuppressWarnings("serial")
 
 @Entity
 @Table(name="vet")
@@ -21,7 +21,7 @@ public class VetEntity implements Serializable {
 	private String password;	
 	
 	@OneToMany (mappedBy="vet")
-	private List<AppointmentEntity> appointments;
+	private List<AppointmentEntity> appointments= new ArrayList<>();
 	
 	public List<AppointmentEntity> getAppointments() {
 		return this.appointments;

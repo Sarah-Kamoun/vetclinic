@@ -20,7 +20,7 @@ pipeline{
 
                 script{
 
-                    sh 'mvn test'
+                    bat 'mvn test'
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline{
 
                 script{
 
-                    bat 'mvn clean'
+                    bat 'mvn clean install'
                 }
             }
         }
@@ -48,7 +48,7 @@ pipeline{
 
                 }
         }
-        stage('upload war file to nexus'){
+        stage('nexus'){
             steps{
                 script{
                     nexusArtifactUploader artifacts:
