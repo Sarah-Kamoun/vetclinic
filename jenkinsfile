@@ -24,49 +24,6 @@ pipeline{
                 }
             }
         }
-        stage('Maven build'){
 
-            steps{
-
-                script{
-
-                    bat 'mvn clean install'
-                }
-            }
-        }
-        stage('Sonar'){
-
-            steps{
-
-                script{
-
-                    withSonarQubeEnv(credentialsId: 'sonar-jenkins') {
-
-                        bat 'mvn clean package sonar:sonar'
-                    }
-                   }
-
-                }
-        }
-        stage('nexus'){
-            steps{
-                script{
-                    nexusArtifactUploader artifacts:
-                    [
-                        [artifactId: 'demo',
-                         classifier: '',
-                         file: 'target\\VetApp.jar',
-                          type: 'jar']
-                    ],
-                    credentialsId: 'nexus-auth',
-                    groupId: 'com.example',
-                    nexusUrl: 'localhost:8081/',
-                    nexusVersion: 'nexus3',
-                    protocol: 'http',
-                    repository: 'vetapp-release',
-                    version: '0.0.1-SNAPSHOT'
-                }
-            }
-        }
     }
 }
