@@ -12,7 +12,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "*")
 public class ClientController {
     @Autowired
-    ClientServiceImpl clientService;
+    private ClientServiceImpl clientService;
 
 
     @GetMapping("/all")
@@ -23,9 +23,9 @@ public class ClientController {
     }
 
     @GetMapping("/{id}")
-    public ClientEntity getClientById(@PathVariable("id") Long Id)
+    public Optional<ClientEntity> getClientById(@PathVariable("id") Long Id)
     {
-        ClientEntity client = this.clientService.getClientById(Id);
+        Optional<ClientEntity> client = this.clientService.getClientById(Id);
         return client;
     }
 

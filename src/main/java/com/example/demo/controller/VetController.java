@@ -22,9 +22,9 @@ public class VetController {
     }
 
     @GetMapping("/{id}")
-    public VetEntity getVetById(@PathVariable("id") Long Id)
+    public Optional<VetEntity> getVetById(@PathVariable("id") Long Id)
     {
-        VetEntity vet = this.vetService.getVetById(Id);
+        Optional<VetEntity> vet = this.vetService.getVetById(Id);
         return vet;
     }
     @PostMapping("/create")

@@ -2,7 +2,6 @@ package com.example.demo.services;
 
 import com.example.demo.entities.ClientEntity;
 import com.example.demo.repositories.ClientRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,10 +17,9 @@ public class ClientServiceImpl {
         return cl;
     }
 
-    public ClientEntity getClientById(Long id){
+    public Optional<ClientEntity> getClientById(Long id){
         Optional<ClientEntity> cl=this.clientRepo.findById(id);
-        ClientEntity c=cl.orElseThrow();
-        return c;
+        return cl;
     }
 
     public void deleteClient(Long client_id){

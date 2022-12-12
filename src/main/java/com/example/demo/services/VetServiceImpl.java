@@ -21,10 +21,10 @@ public class VetServiceImpl{
     }
 
 
-    public VetEntity getVetById(Long id){
+    public Optional<VetEntity> getVetById(Long id){
         Optional<VetEntity> v=this.vetRepo.findById(id);
-        VetEntity vv=v.orElseThrow();
-        return vv;
+
+        return v;
     }
 
 
