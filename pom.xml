@@ -60,7 +60,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>VetApp.jar</finalName>
+        <finalName>VetApp</finalName>
     </build>
 
 </project>
