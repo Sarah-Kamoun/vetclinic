@@ -42,19 +42,7 @@ pipeline{
                 }
             }
         }
-        stage('Static code analysis Sonar'){
 
-            steps{
-                script{
-
-                    withSonarQubeEnv(credentialsId: 'sonar-api') {
-
-                        bat 'mvn clean package sonar:sonar'
-                    }
-                   }
-
-                }
-        }
         stage('nexus'){
             steps{
                 script{
