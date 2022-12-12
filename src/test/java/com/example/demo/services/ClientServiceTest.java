@@ -17,7 +17,7 @@ public class ClientServiceTest {
     @Rollback(value = false)
     @DisplayName("Test addClient")
     public void testAddClient(){
-        ClientEntity client=new ClientEntity(1L,"SarahTest","kamoun","1234","abil.com");
+        ClientEntity client=new ClientEntity(4L,"SarahTest2","kamounn","128534","sabil.com");
         clientRepo.save(client);
     }
 
