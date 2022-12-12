@@ -3,10 +3,10 @@ package com.example.demo.services;
 import com.example.demo.entities.PetEntity;
 import com.example.demo.repositories.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import org.springframework.stereotype.Service;
 @Service
 public class PetServiceImpl{
 
@@ -20,10 +20,9 @@ public class PetServiceImpl{
     }
 
 
-    public  PetEntity getPetById(Long id){
+    public Optional<PetEntity> getPetById(Long id){
         Optional<PetEntity> pet=this.petRepo.findById(id);
-        PetEntity thepet=pet.orElseThrow();
-        return thepet;
+        return pet;
     }
 
 

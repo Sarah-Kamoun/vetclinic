@@ -23,9 +23,9 @@ public class PetController {
     }
 
     @GetMapping("/{id}")
-    public PetEntity getPetById(@PathVariable("id") Long Id)
+    public Optional<PetEntity> getPetById(@PathVariable("id") Long Id)
     {
-        PetEntity pet = this.petService.getPetById(Id);
+        Optional<PetEntity> pet = this.petService.getPetById(Id);
         return pet;
     }
     @PostMapping("/create")
